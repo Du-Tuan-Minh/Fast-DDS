@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dds>
+    <profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+
+        <!-- Participant -->
+        <participant profile_name="test_participant" is_default_profile="true">
+            <rtps>
+                <useBuiltinTransports>false</useBuiltinTransports>
+                <userTransports>
+                    <transport_id>SHM</transport_id>
+                </userTransports>
+                <builtin>
+                    <discovery_config>
+                        <discoveryProtocol>SIMPLE</discoveryProtocol>
+                    </discovery_config>
+                </builtin>
+            </rtps>
+        </participant>
+
+        <!-- Publisher -->
+        <publisher profile_name="test_publisher">
+            <topic>
+                <name>TestTopic</name>
+                <dataType>TestType</dataType> 
+            </topic>
+            <qos>
+                <resourceLimits>
+                    <throughputController>
+                        <bytesPerPeriod>1048576</bytesPerPeriod>
+                        <periodMillisecs>1000</periodMillisecs>
+                    </throughputController>
+                </resourceLimits>
+                <deadline>
+                    <period>
+                        <sec>0</sec>
+                        <nanosec>100000000</nanosec>
+                    </period>
+                </deadline>
+                <reliability>
+                    <kind>BEST_EFFORT</kind>
+                </reliability>
+            </qos>
+        </publisher>
+
+        <!-- Subscriber -->
+        <subscriber profile_name="test_subscriber">
+            <topic>
+                <name>TestTopic</name>
+                <dataType>TestType</dataType> 
+            </topic>
+            <qos>
+                <history>
+                    <kind>KEEP_LAST</kind>
+                    <depth>1</depth>
+                </history>
+                <reliability>
+                    <kind>BEST_EFFORT</kind>
+                </reliability>
+            </qos>
+        </subscriber>
+    </profiles>
+</dds>

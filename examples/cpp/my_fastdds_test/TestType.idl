@@ -1,0 +1,7 @@
+module TestModule {
+    struct TestType {
+        unsigned long long seq;
+        string<128> message;
+        octet data[1024];
+    };
+};

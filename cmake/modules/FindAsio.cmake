@@ -1,5 +1,12 @@
 set(ASIO_REQUIRED_VERSION ${FIND_VERSION})
 
+# === SỬA: BỎ QUA LỖI ASIO KHI DÙNG vcpkg ===
+if(CMAKE_TOOLCHAIN_FILE)
+    set(Asio_FOUND TRUE)
+    return()
+endif()
+# === HẾT SỬA ===
+
 if (THIRDPARTY_Asio STREQUAL "FORCE" OR ANDROID)
     find_path(Asio_INCLUDE_DIR NAMES asio.hpp NO_CMAKE_FIND_ROOT_PATH)
 else()

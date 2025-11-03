@@ -461,6 +461,7 @@ if(COMPILE_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
+add_subdirectory(examples/cpp/my_fastdds_test)
 ###############################################################################
 # Fuzzers
 ###############################################################################
