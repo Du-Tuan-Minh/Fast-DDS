@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\User.000\Downloads\Fast-DDS\build_xml\CMakeFiles\e9d489eb3d8134f874a69e7e0b2d836c\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{795F84FF-AA6B-36BE-B4BC-C1160959DDE2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

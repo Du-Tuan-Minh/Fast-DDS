@@ -22,7 +22,6 @@
 #ifndef FAST_DDS_GENERATED__TESTMODULE_TESTTYPE_HPP
 #define FAST_DDS_GENERATED__TESTMODULE_TESTTYPE_HPP
 
-#include <array>
 #include <cstdint>
 #include <string>
 #include <utility>
@@ -87,7 +86,7 @@ public:
 
                     m_message = x.m_message;
 
-                    m_data = x.m_data;
+                    m_send_timestamp = x.m_send_timestamp;
 
     }
 
@@ -100,7 +99,7 @@ public:
     {
         m_seq = x.m_seq;
         m_message = std::move(x.m_message);
-        m_data = std::move(x.m_data);
+        m_send_timestamp = x.m_send_timestamp;
     }
 
     /*!
@@ -115,7 +114,7 @@ public:
 
                     m_message = x.m_message;
 
-                    m_data = x.m_data;
+                    m_send_timestamp = x.m_send_timestamp;
 
         return *this;
     }
@@ -130,7 +129,7 @@ public:
 
         m_seq = x.m_seq;
         m_message = std::move(x.m_message);
-        m_data = std::move(x.m_data);
+        m_send_timestamp = x.m_send_timestamp;
         return *this;
     }
 
@@ -143,7 +142,7 @@ public:
     {
         return (m_seq == x.m_seq &&
            m_message == x.m_message &&
-           m_data == x.m_data);
+           m_send_timestamp == x.m_send_timestamp);
     }
 
     /*!
@@ -225,41 +224,31 @@ public:
 
 
     /*!
-     * @brief This function copies the value in member data
-     * @param _data New value to be copied in member data
+     * @brief This function sets a value in member send_timestamp
+     * @param _send_timestamp New value for member send_timestamp
      */
-    eProsima_user_DllExport void data(
-            const std::array<uint8_t, 1024>& _data)
+    eProsima_user_DllExport void send_timestamp(
+            uint64_t _send_timestamp)
     {
-        m_data = _data;
+        m_send_timestamp = _send_timestamp;
     }
 
     /*!
-     * @brief This function moves the value in member data
-     * @param _data New value to be moved in member data
+     * @brief This function returns the value of member send_timestamp
+     * @return Value of member send_timestamp
      */
-    eProsima_user_DllExport void data(
-            std::array<uint8_t, 1024>&& _data)
+    eProsima_user_DllExport uint64_t send_timestamp() const
     {
-        m_data = std::move(_data);
+        return m_send_timestamp;
     }
 
     /*!
-     * @brief This function returns a constant reference to member data
-     * @return Constant reference to member data
+     * @brief This function returns a reference to member send_timestamp
+     * @return Reference to member send_timestamp
      */
-    eProsima_user_DllExport const std::array<uint8_t, 1024>& data() const
+    eProsima_user_DllExport uint64_t& send_timestamp()
     {
-        return m_data;
-    }
-
-    /*!
-     * @brief This function returns a reference to member data
-     * @return Reference to member data
-     */
-    eProsima_user_DllExport std::array<uint8_t, 1024>& data()
-    {
-        return m_data;
+        return m_send_timestamp;
     }
 
 
@@ -268,7 +257,7 @@ private:
 
     uint64_t m_seq{0};
     eprosima::fastcdr::fixed_string<128> m_message;
-    std::array<uint8_t, 1024> m_data{0};
+    uint64_t m_send_timestamp{0};
 
 };
 

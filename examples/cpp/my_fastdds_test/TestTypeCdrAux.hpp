@@ -24,7 +24,7 @@
 
 #include "TestType.hpp"
 
-constexpr uint32_t TestModule_TestType_max_cdr_typesize {1173UL};
+constexpr uint32_t TestModule_TestType_max_cdr_typesize {160UL};
 constexpr uint32_t TestModule_TestType_max_key_cdr_typesize {0UL};
 
 

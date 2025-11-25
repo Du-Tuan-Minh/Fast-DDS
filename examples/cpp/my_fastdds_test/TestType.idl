@@ -2,6 +2,6 @@ module TestModule {
     struct TestType {
         unsigned long long seq;
         string<128> message;
-        octet data[1024];
+        unsigned long long send_timestamp;
     };
 };

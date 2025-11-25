@@ -1,6 +1,5 @@
 #include "TestType.hpp"
 #include "TestTypePubSubTypes.hpp"
-
 #include <fastdds/dds/domain/DomainParticipantFactory.hpp>
 #include <fastdds/dds/domain/DomainParticipant.hpp>
 #include <fastdds/dds/publisher/Publisher.hpp>
@@ -57,15 +56,19 @@ int main()
 
     //send data
     TestModule::TestType data;
-    std::array<uint8_t, 1024> payload{};
-    payload.fill(0xAA);
-    data.data(payload);
     data.message("Hello from Fast DDS!");
 
     int count = 0;
     while (true)
     {
         data.seq(++count);
+
+        auto now = std::chrono::high_resolution_clock::now();
+        auto now_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
+            now.time_since_epoch())
+            .count();
+        data.send_timestamp(now_ns);
+
         auto ret = writer->write(&data);
 
         if (ret == RETCODE_OK) 
